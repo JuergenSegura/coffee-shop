@@ -13,7 +13,7 @@
 
 ## `npm run dev`
 
-
+### Puede importar la coleccion de postman para probar los endpoints
 
 ## Endpoints
 
