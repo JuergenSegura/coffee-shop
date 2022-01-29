@@ -15,6 +15,12 @@
 
 ### Puede importar la coleccion de postman para probar los endpoints
 
+## `PostmanColletion/API CoffeeShop.postman_collection.json`
+
+### Software de Postman
+
+## `https://www.postman.com/downloads/`
+
 ## Endpoints
 
 ### getItems

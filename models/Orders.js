@@ -3,32 +3,31 @@ mongoose.Promise = global.Promise;
 const Schema = mongoose.Schema;
 
 
-const itemsSchema = new Schema({
-
-    image:{
-        type: String,
-        lowercase: true,
-        trim: true,
-    },
-
-    updatedAt:{
-        type: Number
-    },
+const ordersSchema = new Schema({
 
     createdAt:{
         type: Number
     },
 
-    price:{
-        type: Number,
+    user:{
+        type: String,
         trim: true,
     },
+    
+    items: [{
+        id:{
+            type: mongoose.Schema.ObjectId,
+            ref: 'Items',
+            required: 'El item es Obligarorio'
+        },
+        qty: Number
+    }],
 
-    description:{
-        type: String,
+    updatedAt:{
+        type: Number,
     },
 
-    name:{
+    state:{
         type: String,
         lowercase: true,
         trim: true,
@@ -38,12 +37,18 @@ const itemsSchema = new Schema({
 
 { versionKey: false });
 
+
 //AGREGA LA FECHA ACTUAL AL CREAR UN ITEM
-itemsSchema.pre('save', function (next) {
+ordersSchema.pre('save', function (next) {
     //Agrega la fecha de creacion
     const create = Date.now();
     this.createdAt = create;
+    this.state = "pendiente";
+
     next();
 });
 
-module.exports = mongoose.model('Items', itemsSchema);
+
+
+
+module.exports = mongoose.model('Order', ordersSchema);

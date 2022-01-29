@@ -34,14 +34,16 @@ exports.addItem = function (req, res) {
   items.save(function (err, item) {
     if (err)
       return res.send(err);
-    return res.status(200).send({message: "Se agrego un nuevo item"});
+    return res.status(200).jsonp(items);
   });
 };
 
 
 //UPDATE ITEM => ACTUALIZA UN ITEM POR EL ID
 exports.updateItem = async (req, res) => {
-  const item = await Item.findOneAndUpdate({_id: req.params.idItem},
+
+  req.body.updatedAt =  Date.now();
+  const item = await Item.updateOne({_id: req.params.idItem},
     req.body, {
       new: true
   });
@@ -49,7 +51,11 @@ exports.updateItem = async (req, res) => {
   if(item.err) {
     return res.send(item.err);
   }
-  return res.status(200).send({message: "Se ha actualizado exitosamente"});
+  const itemUpdated = {'image': req.body.image,
+                        'price': req.body.price,
+                        'id': req.params.idItem,
+                        'name': req.body.name}
+  return res.status(200).jsonp(itemUpdated);
 
 }
 
@@ -62,14 +68,10 @@ exports.deleteItemById = async (req, res) => {
     if(err) {
       return res.send(err);
     } else {
-      return res.status(200).send({message: "Item eliminado exitosamente"})
+      return res.status(200).jsonp(item.idItem);
     }
 
   });
 
- 
-
-
-  
 }
 

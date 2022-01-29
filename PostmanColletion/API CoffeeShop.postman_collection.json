@@ -31,7 +31,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"image\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/251px-A_small_cup_of_coffee.JPG\",\r\n    \"price\": 300,\r\n    \"name\": \"cafe\"\r\n}",
+					"raw": "{\r\n    \"image\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/251px-A_small_cup_of_coffee.JPG\",\r\n    \"price\": 5000,\r\n    \"name\": \"Cafecito\"\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -59,7 +59,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"image\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/251px-A_small_cup_of_coffee.JPG\",\r\n    \"price\": 2050,\r\n    \"name\": \"Capuchino\"\r\n}",
+					"raw": "{\r\n    \"image\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/251px-A_small_cup_of_coffee.JPG\",\r\n    \"price\": 1000000,\r\n    \"name\": \"Capuchin155o154s54s54s\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -67,7 +67,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/item/61f44b09f3adf735fcf2c3ed",
+					"raw": "http://localhost:5000/item/61f4e7235e13883b105c0fe5",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -75,7 +75,7 @@
 					"port": "5000",
 					"path": [
 						"item",
-						"61f44b09f3adf735fcf2c3ed"
+						"61f4e7235e13883b105c0fe5"
 					]
 				}
 			},
@@ -87,7 +87,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/item/61f42c064fbfe591341c0fe3",
+					"raw": "http://localhost:5000/item/61f4e7235e13883b105c0fe5",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -95,7 +95,7 @@
 					"port": "5000",
 					"path": [
 						"item",
-						"61f42c064fbfe591341c0fe3"
+						"61f4e7235e13883b105c0fe5"
 					]
 				}
 			},
@@ -107,7 +107,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/item/61f42ba2df56e343dc0f0deb",
+					"raw": "http://localhost:5000/item/61f44f1c4d55a32d388ad536",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -115,7 +115,83 @@
 					"port": "5000",
 					"path": [
 						"item",
-						"61f42ba2df56e343dc0f0deb"
+						"61f44f1c4d55a32d388ad536"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"id\": \"61f4e7235e13883b105c0fe5\",\r\n      \"qty\": 6\r\n    }\r\n  ],\r\n  \"user\": \"Danny Chaves\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Order",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"state\": \"complete\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/order/61f4eea5e29474424071983d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"order",
+						"61f4eea5e29474424071983d"
 					]
 				}
 			},

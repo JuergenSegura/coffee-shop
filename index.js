@@ -11,10 +11,12 @@ require('dotenv').config({ path: './variables.env' });
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.BD_URL,{
-// mongoose.connect('mongodb://localhost/restapis', {
+mongoose.connect('mongodb+srv://juergen:Juergen98sc@cluster0.ux4bo.mongodb.net/CoffeeShopDb?retryWrites=true&w=majority',{
     useNewUrlParser: true
 });
+
+
+
 
 //HABILITAR EL BODY PARSER 
 app.use(bodyParser.json());
