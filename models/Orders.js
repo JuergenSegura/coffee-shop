@@ -5,37 +5,39 @@ const Schema = mongoose.Schema;
 
 const ordersSchema = new Schema({
 
-    createdAt:{
-        type: Number
-    },
-
-    user:{
-        type: String,
-        trim: true,
-    },
-    
-    items: [{
-        id:{
-            type: mongoose.Schema.ObjectId,
-            ref: 'Items',
-            required: 'El item es Obligarorio'
+        createdAt: {
+            type: Number
         },
-        qty: Number
-    }],
 
-    updatedAt:{
-        type: Number,
+        user: {
+            type: String,
+            trim: true,
+        },
+
+        items: [{
+            id: {
+                type: mongoose.Schema.ObjectId,
+                ref: 'Items',
+                required: 'El item es Obligarorio'
+            },
+            qty: Number
+        }],
+
+        updatedAt: {
+            type: Number,
+        },
+
+        state: {
+            type: String,
+            lowercase: true,
+            trim: true,
+        }
+
     },
 
-    state:{
-        type: String,
-        lowercase: true,
-        trim: true,
-    }
-
-},
-
-{ versionKey: false });
+    {
+        versionKey: false
+    });
 
 
 //AGREGA LA FECHA ACTUAL AL CREAR UN ITEM

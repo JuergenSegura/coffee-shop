@@ -23,6 +23,8 @@
 
 ## Endpoints
 
+### `Items`
+
 ### getItems
 
 ## `http://localhost:5000/item`
@@ -42,3 +44,18 @@
 ### deleteItems
 
 ## `http://localhost:5000/item/:idItem`
+
+
+### `Orders`
+
+### getOrders
+
+## `http://localhost:5000/order`
+
+### addOrder
+
+## `http://localhost:5000/order`
+
+### updateOrder
+
+## `http://localhost:5000/order/:idItem`

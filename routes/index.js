@@ -48,11 +48,6 @@ module.exports = function () {
         orderController.getOrder
     ); 
 
-    //OBTENER UN ITEM POR ID
-    router.get('/order/:idOrder',  
-        orderController.getOrderById
-    ); 
-
     //GUARDAR UN NUEVO ITEM
     router.post('/order', 
         orderController.addOrder

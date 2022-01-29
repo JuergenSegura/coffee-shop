@@ -5,38 +5,40 @@ const Schema = mongoose.Schema;
 
 const itemsSchema = new Schema({
 
-    image:{
-        type: String,
-        lowercase: true,
-        trim: true,
+        image: {
+            type: String,
+            lowercase: true,
+            trim: true,
+        },
+
+        updatedAt: {
+            type: Number
+        },
+
+        createdAt: {
+            type: Number
+        },
+
+        price: {
+            type: Number,
+            trim: true,
+        },
+
+        description: {
+            type: String,
+        },
+
+        name: {
+            type: String,
+            lowercase: true,
+            trim: true,
+        }
+
     },
 
-    updatedAt:{
-        type: Number
-    },
-
-    createdAt:{
-        type: Number
-    },
-
-    price:{
-        type: Number,
-        trim: true,
-    },
-
-    description:{
-        type: String,
-    },
-
-    name:{
-        type: String,
-        lowercase: true,
-        trim: true,
-    }
-
-},
-
-{ versionKey: false });
+    {
+        versionKey: false
+    });
 
 //AGREGA LA FECHA ACTUAL AL CREAR UN ITEM
 itemsSchema.pre('save', function (next) {

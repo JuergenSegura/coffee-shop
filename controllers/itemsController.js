@@ -1,5 +1,3 @@
-
-
 const Item = require('../models/Items');
 
 
@@ -17,7 +15,7 @@ exports.getItems = function (req, res) {
 
 //GET ITEM BY ID => OBTIENE EL ITEM POR ID
 exports.getItemById = function (req, res) {
-  Item.findById(req.params.idItem,function (err, item) {
+  Item.findById(req.params.idItem, function (err, item) {
     if (err) res.send(500, err.message);
 
     console.log("GET /itemById");
@@ -42,19 +40,23 @@ exports.addItem = function (req, res) {
 //UPDATE ITEM => ACTUALIZA UN ITEM POR EL ID
 exports.updateItem = async (req, res) => {
 
-  req.body.updatedAt =  Date.now();
-  const item = await Item.updateOne({_id: req.params.idItem},
+  req.body.updatedAt = Date.now();
+  const item = await Item.updateOne({
+      _id: req.params.idItem
+    },
     req.body, {
       new: true
-  });
+    });
 
-  if(item.err) {
+  if (item.err) {
     return res.send(item.err);
   }
-  const itemUpdated = {'image': req.body.image,
-                        'price': req.body.price,
-                        'id': req.params.idItem,
-                        'name': req.body.name}
+  const itemUpdated = {
+    'image': req.body.image,
+    'price': req.body.price,
+    'id': req.params.idItem,
+    'name': req.body.name
+  }
   return res.status(200).jsonp(itemUpdated);
 
 }
@@ -63,9 +65,11 @@ exports.updateItem = async (req, res) => {
 
 //DELETE ITEM BY ID
 exports.deleteItemById = async (req, res) => {
-  const item = await Item.findOneAndDelete({_id: req.params.idItem}, (err)  => {
+  const item = await Item.findOneAndDelete({
+    _id: req.params.idItem
+  }, (err) => {
 
-    if(err) {
+    if (err) {
       return res.send(err);
     } else {
       return res.status(200).jsonp(item.idItem);
@@ -74,4 +78,3 @@ exports.deleteItemById = async (req, res) => {
   });
 
 }
-
